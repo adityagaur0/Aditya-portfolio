@@ -16,7 +16,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     var deviceType = getDeviceType(MediaQuery.of(context).size);
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(20, 19, 26, 1.0),
+      backgroundColor: TColors.primary,
       drawer: const SideMenu(),
       body: SafeArea(
         child: Row(

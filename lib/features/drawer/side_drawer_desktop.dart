@@ -13,7 +13,16 @@ class SideMenuDesktop extends StatelessWidget {
     return Column(
       children: [
         const SizedBox(
-          height: 40,
+          height: 20,
+        ),
+        Image.asset(
+          "assets/images/brand/aditya-kumar-gaur-high-resolution-logo-white-transparent.png",
+          height: 90.h,
+          fit: BoxFit.cover,
+          color: Colors.white54,
+        ),
+        SizedBox(
+          height: 20,
         ),
         // ClipRect(
         //   child: Align(

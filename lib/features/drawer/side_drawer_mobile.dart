@@ -41,13 +41,24 @@ class SideMenu extends StatelessWidget {
           Expanded(
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 20),
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               decoration: BoxDecoration(
                   color: TColors.secondary,
                   borderRadius: BorderRadius.circular(10)),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Center(
+                    child: Image.asset(
+                      "assets/images/brand/aditya-kumar-gaur-high-resolution-logo-white-transparent.png",
+                      height: 80.h,
+                      fit: BoxFit.cover,
+                      color: Colors.white54,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
                   DrawerListTile3(
                     image: "assets/images/icon/home.png",
                     title: "Home",

@@ -104,6 +104,85 @@ class WimpMobileWgt extends StatelessWidget {
   }
 }
 
+// class wimp_list_tile extends StatelessWidget {
+//   wimp_list_tile({
+//     required this.text,
+//     required this.names,
+//     required this.color,
+//     super.key,
+//   });
+//   String text;
+//   final List<String> names;
+//   final List<Color> color;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       padding: const EdgeInsets.only(left: 20, top: 10, right: 20),
+//       margin: const EdgeInsets.only(bottom: 20),
+//       // width: 200.h,
+//       // width: double.infinity,
+//       height: 280.h,
+//       // width: 170.h,
+//       decoration: BoxDecoration(
+//         color: TColors.secondary,
+//         borderRadius: BorderRadius.circular(10),
+//       ),
+//       child: Column(
+//         crossAxisAlignment: CrossAxisAlignment.start,
+//         children: [
+//           Text(
+//             text,
+//             style: TextStyle(
+//               fontSize: 16.h,
+//               fontWeight: FontWeight.w600,
+//               color: Colors.white54,
+//             ),
+//           ),
+//           SizedBox(height: 10.h),
+//           // Wrap the Python and Django containers with Flexible widget
+
+//           // Add some space between the title and the names
+//           Expanded(
+//             child: ListView.separated(
+//               // scrollDirection: Axis.horizontal,
+//               separatorBuilder: (context, index) => SizedBox(height: 8.h),
+//               itemCount: names.length,
+//               itemBuilder: (context, index) {
+//                 return _buildNameBox(names[index], color[index]);
+//               },
+//             ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+
+//   Widget _buildNameBox(String name, Color color) {
+//     return Container(
+//       // margin: const EdgeInsets.only(bottom: 10),
+//       padding: EdgeInsets.symmetric(horizontal: 10.h, vertical: 6.h),
+//       // Set width equal to the maximum width
+//       decoration: BoxDecoration(
+//         color: TColors.primary,
+//         borderRadius: BorderRadius.circular(5),
+//         border: Border.all(
+//           color: Colors.white54,
+//           width: 1,
+//         ),
+//       ),
+//       child: Text(
+//         name,
+//         style: TextStyle(
+//           fontSize: 12.h,
+//           fontWeight: FontWeight.w500,
+//           color: Colors.white54,
+//         ),
+//       ),
+//     );
+//   }
+// }
+
 class wimp_list_tile extends StatelessWidget {
   wimp_list_tile({
     required this.text,
@@ -118,11 +197,11 @@ class wimp_list_tile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(left: 20, top: 10, right: 20),
+      padding: const EdgeInsets.only(left: 20, top: 10, right: 20, bottom: 20),
       margin: const EdgeInsets.only(bottom: 20),
       // width: 200.h,
-      // width: double.infinity,
-      height: 280.h,
+      width: double.infinity,
+      // height: 280.h,
       // width: 170.h,
       decoration: BoxDecoration(
         color: TColors.secondary,
@@ -143,13 +222,12 @@ class wimp_list_tile extends StatelessWidget {
           // Wrap the Python and Django containers with Flexible widget
 
           // Add some space between the title and the names
-          Expanded(
-            child: ListView.separated(
-              separatorBuilder: (context, index) => SizedBox(height: 8.h),
-              itemCount: names.length,
-              itemBuilder: (context, index) {
-                return _buildNameBox(names[index], color[index]);
-              },
+          Wrap(
+            spacing: 8.0, // Space between the items
+            runSpacing: 8.0, // Space between the rows
+            children: List.generate(
+              names.length,
+              (index) => _buildNameBox(names[index], color[index]),
             ),
           ),
         ],
@@ -159,7 +237,6 @@ class wimp_list_tile extends StatelessWidget {
 
   Widget _buildNameBox(String name, Color color) {
     return Container(
-      // margin: const EdgeInsets.only(bottom: 10),
       padding: EdgeInsets.symmetric(horizontal: 10.h, vertical: 6.h),
       // Set width equal to the maximum width
       decoration: BoxDecoration(
@@ -181,58 +258,3 @@ class wimp_list_tile extends StatelessWidget {
     );
   }
 }
-
-
-// class wimp_list_tile extends StatelessWidget {
-//   wimp_list_tile({
-//     required this.text,
-//     super.key,
-//   });
-//   String text;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       padding: EdgeInsets.only(left: 15, top: 20),
-//       // width: 200.h,
-//       // width: double.infinity,
-//       height: 280.h,
-//       width: double.infinity,
-//       decoration: BoxDecoration(
-//         color: TColors.secondary,
-//         borderRadius: BorderRadius.circular(10),
-//       ),
-//       child: Column(
-//         crossAxisAlignment: CrossAxisAlignment.start,
-//         children: [
-//           Text(
-//             text,
-//             style: TextStyle(
-//               fontSize: 16.h,
-//               fontWeight: FontWeight.w600,
-//               color: Colors.white54,
-//             ),
-//           ),
-//           // Padding(
-//           //   padding: EdgeInsets.symmetric(horizontal: 20),
-//           //   child: Text(projectTitle,
-//           //       style: TextStyle(
-//           //           color: Colors.black,
-//           //           fontSize: 13.h,
-//           //           fontWeight: FontWeight.w900)),
-//           // ),
-//           // Padding(
-//           //   padding: EdgeInsets.symmetric(horizontal: 20),
-//           //   child: Text(skills,
-//           //       textAlign: TextAlign.start,
-//           //       style: TextStyle(
-//           //         color: Colors.black.withOpacity(0.8),
-//           //         fontSize: 11.h,
-//           //         fontWeight: FontWeight.normal,
-//           //       )),
-//           // ),
-//         ],
-//       ),
-//     );
-//   }
-// }
