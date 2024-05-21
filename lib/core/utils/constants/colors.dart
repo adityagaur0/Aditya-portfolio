@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 class TColors {
   // App theme colors
 
-  static const Color primary = Color.fromRGBO(20, 19, 26, 1.0);
+  // static const Color primary = Color.fromRGBO(20, 19, 26, 1.0);
+  static const Color primary = Colors.black;
   // static const Color primary = Colors.white;
 
-  static const Color secondary = Color.fromRGBO(28, 27, 35, 1.0);
+  // static const Color secondary = Color.fromRGBO(28, 27, 35, 1.0);
+  static Color secondary = Colors.grey.withOpacity(0.1);
   static const Color accent = Color(0xFFb0c7ff);
 
   // Text colors

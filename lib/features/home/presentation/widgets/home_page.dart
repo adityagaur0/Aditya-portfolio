@@ -49,6 +49,7 @@ class home_page_wgt extends StatelessWidget {
     var deviceType = getDeviceType(MediaQuery.of(context).size);
 
     return SingleChildScrollView(
+      physics: BouncingScrollPhysics(),
       padding: (DeviceScreenType.desktop == deviceType)
           ? const EdgeInsets.only(left: 10, right: 20)
           : const EdgeInsets.symmetric(horizontal: 10),
@@ -75,13 +76,13 @@ class home_page_wgt extends StatelessWidget {
           SizedBox(
             height: 30.h,
           ),
-          heading("What I Know"),
-          SizedBox(
-            height: 20.h,
-          ),
           const WimpWgt(),
           SizedBox(
-            height: 60.h,
+            height: 10.h,
+          ),
+
+          SizedBox(
+            height: 40.h,
           ),
         ],
       ),

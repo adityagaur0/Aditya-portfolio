@@ -18,22 +18,22 @@ class NavBarDesktop extends StatelessWidget {
             );
             await launchUrl(launchUri);
           },
-          style: ElevatedButton.styleFrom(
-              backgroundColor: const Color.fromRGBO(30, 116, 72, 1.0)),
+          // style: ElevatedButton.styleFrom(
+          //     backgroundColor: const Color.fromRGBO(30, 116, 72, 1.0)),
           child: const Row(
             children: [
               Text(
                 'Contact Me',
                 style: TextStyle(color: TColors.textSecondary),
               ),
-              SizedBox(
-                width: 5,
-              ),
-              Icon(
-                Icons.person,
-                size: 20,
-                color: TColors.textSecondary,
-              ),
+              // SizedBox(
+              //   width: 5,
+              // ),
+              // Icon(
+              //   Icons.person,
+              //   size: 20,
+              //   color: TColors.textSecondary,
+              // ),
             ],
           ),
         ),
