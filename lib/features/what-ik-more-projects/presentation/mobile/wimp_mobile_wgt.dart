@@ -1,4 +1,5 @@
 import 'package:aditya_gaur_portfolio_flutter/core/utils/constants/colors.dart';
+import 'package:aditya_gaur_portfolio_flutter/core/utils/constants/keys.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:http/http.dart' as http;
@@ -15,8 +16,7 @@ class _WimpMobileWgtState extends State<WimpMobileWgt> {
   List<dynamic> repositories = [];
   bool isLoading = true;
   Future<void> fetchRepositories() async {
-    final String token =
-        "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";
+    const String token = apiKey;
     final response = await http.get(
       Uri.https('api.github.com', '/user/starred'),
       headers: {'Authorization': 'token $token'},
