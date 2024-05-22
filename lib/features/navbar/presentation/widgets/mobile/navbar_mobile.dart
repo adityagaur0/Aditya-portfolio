@@ -19,21 +19,13 @@ class NavBarMobile extends StatelessWidget {
             );
             await launchUrl(launchUri);
           },
-          style: ElevatedButton.styleFrom(
-              backgroundColor: const Color.fromRGBO(30, 116, 72, 1.0)),
+          // style: ElevatedButton.styleFrom(
+          //     backgroundColor: const Color.fromRGBO(30, 116, 72, 1.0)),
           child: Row(
             children: [
               const Text(
                 'Contact Me',
                 style: TextStyle(color: TColors.textSecondary),
-              ),
-              SizedBox(
-                width: 5.h,
-              ),
-              Icon(
-                Icons.person,
-                size: 20.h,
-                color: TColors.textSecondary,
               ),
             ],
           ),

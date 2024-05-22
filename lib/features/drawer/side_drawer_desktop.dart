@@ -16,12 +16,12 @@ class SideMenuDesktop extends StatelessWidget {
           height: 20,
         ),
         Image.asset(
-          "assets/images/brand/aditya-kumar-gaur-high-resolution-logo-white-transparent.png",
-          height: 90.h,
-          fit: BoxFit.cover,
-          color: Colors.white54,
+          "assets/images/brand/AG_b.jpg",
+          height: 80.h,
+          //  fit: BoxFit.cover,
+          // color: Colors.white54,
         ),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         // ClipRect(
@@ -41,8 +41,8 @@ class SideMenuDesktop extends StatelessWidget {
             decoration: BoxDecoration(
                 color: TColors.secondary,
                 borderRadius: BorderRadius.circular(10)),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            child: ListView(
+              // crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // Text("Aditya."),
                 DrawerListTile3(

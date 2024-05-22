@@ -29,6 +29,7 @@ migrate_working_dir/
 .flutter-plugins-dependencies
 .pub-cache/
 .pub/
+/lib/core/utils/constants/keys.dart
 
 # Symbolication related
 app.*.symbols

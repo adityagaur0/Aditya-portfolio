@@ -14,7 +14,7 @@ class TElevatedButtonTheme {
       backgroundColor: TColors.primary,
       disabledForegroundColor: TColors.darkGrey,
       disabledBackgroundColor: TColors.buttonDisabled,
-      //side: const BorderSide(color: TColors.primary),
+      side: const BorderSide(color: Colors.white),
       //  padding: const EdgeInsets.symmetric(vertical: TSizes.buttonHeight),
       textStyle: TextStyle(
         color: TColors.primary.withOpacity(0.1),
@@ -32,7 +32,7 @@ class TElevatedButtonTheme {
       backgroundColor: TColors.primary,
       disabledForegroundColor: TColors.darkGrey,
       disabledBackgroundColor: TColors.darkerGrey,
-      // side: const BorderSide(color: TColors.primary),
+      side: BorderSide(color: Colors.white54),
       // padding: const EdgeInsets.symmetric(vertical: TSizes.buttonHeight),
       textStyle: TextStyle(color: TColors.primary.withOpacity(0.1)),
       shape: RoundedRectangleBorder(

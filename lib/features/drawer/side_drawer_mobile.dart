@@ -38,6 +38,17 @@ class SideMenu extends StatelessWidget {
               ),
             ),
           ),
+          Center(
+            child: Image.asset(
+              "assets/images/brand/AG_b.jpg",
+              height: 80.h,
+              //fit: BoxFit.cover,
+              // color: Colors.white54,
+            ),
+          ),
+          SizedBox(
+            height: 10.h,
+          ),
           Expanded(
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 20),
@@ -48,15 +59,7 @@ class SideMenu extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Center(
-                    child: Image.asset(
-                      "assets/images/brand/aditya-kumar-gaur-high-resolution-logo-white-transparent.png",
-                      height: 80.h,
-                      fit: BoxFit.cover,
-                      color: Colors.white54,
-                    ),
-                  ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   DrawerListTile3(

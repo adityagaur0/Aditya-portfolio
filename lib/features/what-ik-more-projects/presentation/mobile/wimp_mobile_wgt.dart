@@ -1,104 +1,188 @@
 import 'package:aditya_gaur_portfolio_flutter/core/utils/constants/colors.dart';
+import 'package:aditya_gaur_portfolio_flutter/core/utils/constants/keys.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
-class WimpMobileWgt extends StatelessWidget {
+class WimpMobileWgt extends StatefulWidget {
   const WimpMobileWgt({super.key});
 
   @override
+  State<WimpMobileWgt> createState() => _WimpMobileWgtState();
+}
+
+class _WimpMobileWgtState extends State<WimpMobileWgt> {
+  List<dynamic> repositories = [];
+  bool isLoading = true;
+  Future<void> fetchRepositories() async {
+    const String token = apiKey;
+    final response = await http.get(
+      Uri.https('api.github.com', '/user/starred'),
+      headers: {'Authorization': 'token $token'},
+    );
+
+    if (response.statusCode == 200) {
+      setState(() {
+        repositories = json.decode(response.body);
+        isLoading = false;
+      });
+    } else {
+      // Handle error
+      print('Failed to load repositories');
+      setState(() {
+        isLoading = false;
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    fetchRepositories();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 30),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: 20.h,
+            ),
+            heading("What I Know"),
+            SizedBox(
+              height: 20.h,
+            ),
+            wimp_list_tile(
+              text: 'Frontend.',
+              names: const [
+                'Flutter',
+                'HTML',
+                'CSS',
+                'JavaScript',
+                'TypeScript',
+              ],
+              color: [
+                Colors.transparent,
+                Colors.blueAccent.withOpacity(0.5),
+                Colors.green.withOpacity(0.6),
+                Colors.transparent,
+                const Color.fromARGB(255, 255, 218, 8).withOpacity(0.6)
+              ],
+            ),
+            SizedBox(
+              width: 20.h,
+            ),
+            wimp_list_tile(
+              text: 'Backend.',
+              names: const ['Flask', 'Node.js', 'Express.js'],
+              color: const [
+                Colors.blue,
+                Colors.green,
+                Colors.transparent,
+                Colors.yellow
+              ],
+            ),
+            SizedBox(
+              width: 20.h,
+            ),
+            wimp_list_tile(
+              text: 'Database.',
+              names: const [
+                'Firebase',
+                'Supabase',
+                'MongoDB',
+                'Tensorflow',
+                'PostgreSQL',
+                'MySQL'
+              ],
+              color: const [
+                Colors.transparent,
+                Colors.blue,
+                Colors.green,
+                Colors.transparent,
+                Colors.yellow,
+                Colors.red
+              ],
+            ),
+            SizedBox(
+              width: 20.h,
+            ),
+            wimp_list_tile(
+              text: 'Devops.',
+              names: const ['Git', 'Docker', 'AWS'],
+              color: const [
+                Colors.transparent,
+                Colors.blue,
+                Colors.green,
+                Colors.transparent,
+                Colors.yellow
+              ],
+            ),
+            SizedBox(
+              width: 20.h,
+            ),
+            heading("More Projects"),
+            SizedBox(height: 15.h),
+            isLoading
+                ? Center(child: CircularProgressIndicator())
+                : ListView.builder(
+                    shrinkWrap:
+                        true, // Add this to make ListView take minimal space
+                    physics:
+                        NeverScrollableScrollPhysics(), // Disable ListView scrolling
+                    itemCount: repositories.length,
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                        leading: Image.asset(
+                          "assets/images/social/github_icon_black.png",
+                          height: 14.h,
+                          color: Colors.white54,
+                        ),
+                        title: Text(
+                          repositories[index]['name'],
+                          style: TextStyle(
+                            fontSize: 13.h,
+                            color: Colors.white54,
+                          ),
+                        ),
+                        trailing: Icon(
+                          Icons.arrow_forward_ios,
+                          color: Colors.white54,
+                          size: 10.h,
+                        ),
+                        subtitle: Text(
+                          repositories[index]['description'] ?? '',
+                          style:
+                              TextStyle(color: Colors.white38, fontSize: 12.h),
+                        ),
+                        onTap: () {
+                          // Handle tap on repository
+                        },
+                      );
+                    },
+                  ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Padding heading(String text) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30),
-      child: Column(
-        children: [
-          // wimp_list_tile(
-          //   text: 'Frontend',
-          // ),
-          // SizedBox(
-          //   height: 20.h,
-          // ),
-          // wimp_list_tile(
-          //   text: 'Backend',
-          // ),
-          // SizedBox(
-          //   height: 20.h,
-          // ),
-          // wimp_list_tile(
-          //   text: 'Database',
-          // ),
-          // SizedBox(
-          //   height: 20.h,
-          // ),
-          // wimp_list_tile(
-          //   text: 'Devops',
-          // )
-          wimp_list_tile(
-            text: 'Frontend.',
-            names: const [
-              'Flutter',
-              'HTML',
-              'CSS',
-              'JavaScript',
-              'TypeScript',
-            ],
-            color: [
-              Colors.transparent,
-              Colors.blueAccent.withOpacity(0.5),
-              Colors.green.withOpacity(0.6),
-              Colors.transparent,
-              const Color.fromARGB(255, 255, 218, 8).withOpacity(0.6)
-            ],
-          ),
-          SizedBox(
-            width: 20.h,
-          ),
-          wimp_list_tile(
-            text: 'Backend.',
-            names: const ['Flask', 'Node.js', 'Express.js'],
-            color: const [
-              Colors.blue,
-              Colors.green,
-              Colors.transparent,
-              Colors.yellow
-            ],
-          ),
-          SizedBox(
-            width: 20.h,
-          ),
-          wimp_list_tile(
-            text: 'Database.',
-            names: const [
-              'Firebase',
-              'Supabase',
-              'MongoDB',
-              'Tensorflow',
-              'PostgreSQL',
-              'MySQL'
-            ],
-            color: const [
-              Colors.transparent,
-              Colors.blue,
-              Colors.green,
-              Colors.transparent,
-              Colors.yellow,
-              Colors.red
-            ],
-          ),
-          SizedBox(
-            width: 20.h,
-          ),
-          wimp_list_tile(
-            text: 'Devops.',
-            names: const ['Git', 'Docker', 'AWS'],
-            color: const [
-              Colors.transparent,
-              Colors.blue,
-              Colors.green,
-              Colors.transparent,
-              Colors.yellow
-            ],
-          ),
-        ],
+      padding: const EdgeInsets.symmetric(horizontal: 0),
+      child: Text(
+        text,
+        // textAlign: TextAlign.start,
+        style: TextStyle(
+          fontSize: 18.0.h,
+          fontWeight: FontWeight.w600,
+          color: TColors.light,
+        ),
       ),
     );
   }
