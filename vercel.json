@@ -1,0 +1,4 @@
+{
+  "builds": [{ "src": "build/web/**", "use": "@vercel/static" }],
+  "routes": [{ "src": "/config.js", "dest": "/api/config.js" }]
+}

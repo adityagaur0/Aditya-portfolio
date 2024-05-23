@@ -1,5 +1,5 @@
 import 'dart:convert';
-
+import 'dart:js' as js;
 import 'package:aditya_gaur_portfolio_flutter/core/utils/constants/colors.dart';
 import 'package:aditya_gaur_portfolio_flutter/core/utils/constants/keys.dart';
 import 'package:flutter/material.dart';
@@ -16,8 +16,13 @@ class WimpDesktopWgt extends StatefulWidget {
 class _WimpDesktopWgtState extends State<WimpDesktopWgt> {
   List<dynamic> repositories = [];
   bool isLoading = true;
+  String get apiToken {
+    return js.context['env']['API_TOKEN'] as String;
+  }
+
   Future<void> fetchRepositories() async {
-    const String token = apiKey;
+    // const String token = apiKey;
+    String token = apiToken;
     final response = await http.get(
       Uri.https('api.github.com', '/user/starred'),
       headers: {'Authorization': 'token $token'},
